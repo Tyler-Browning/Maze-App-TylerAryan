@@ -6,7 +6,15 @@ public class maze
 
     public boolean loadMaze(String fName)
     {
-        
+        this.maze = new Square[numRows][numCols];
+
+        for (int row=0; row < numRows; row++) 
+        {
+            for (int col=0; col < numCols; col++)  
+            {
+                maze[row][col] = null;
+            }
+        }
     }
 
     public ArrayList<square> getNeighbors(square sq)
