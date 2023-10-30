@@ -6,7 +6,7 @@ public class maze
 
     public boolean loadMaze(String fName)
     {
-
+        
     }
 
     public ArrayList<square> getNeighbors(square sq)
