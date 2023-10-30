@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class maze 
 {
     private square maze[][];
-
+aaaa
     public boolean loadMaze(String fName)
     {
         this.maze = new Square[numRows][numCols];
