@@ -1,14 +1,16 @@
 import java.io.File;
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
-public class myStack implements StackADT<T> {
+public class myStack<T> implements StackADT<T> {
     
+    ArrayList<T> stack;
 
     public myStack() {
-        myStack = new ArrayList<>();
-
+        stack = new ArrayList<>();
     }
     public void push(T item) {
-        myStack.add(item);
+        stack.add(item);
     }
 
     /**
@@ -17,12 +19,12 @@ public class myStack implements StackADT<T> {
      * @throws NoSuchElementException if the stack is empty
      */
     public T pop() {
-        if (myStack.isEmpty()) {
-            throw new NoSuchElementException;
+        if (stack.isEmpty()) {
+            throw new NoSuchElementException();
         }
         else {
-            element = myStack.get(0);
-            myStack.remove(0);
+            T element = stack.get(0);
+            stack.remove(0);
             return element;
         }
     } 
@@ -34,11 +36,11 @@ public class myStack implements StackADT<T> {
      * @throws NoSuchElementException if the stack is empty
      */
     public T top() {
-        if (myStack.isEmpty()) {
-            throw new NoSuchElementException;
+        if (stack.isEmpty()) {
+            throw new NoSuchElementException();
         }
         else {
-            return myStack.get(0);
+            return stack.get(0);
         }
     }
 
@@ -47,7 +49,7 @@ public class myStack implements StackADT<T> {
      * @return the number of items in the stack
      */
     public int size() {
-        return myStack.size();
+        return stack.size();
     }
 
     /**
@@ -55,14 +57,14 @@ public class myStack implements StackADT<T> {
      * @return true if the size is 0, false otherwise
      */
     public boolean isEmpty() {
-        return myStack.isEmpty();
+        return stack.isEmpty();
     }
 
     /**
      * Clear out the data structure
      */
     public void clear() {
-        myStack.clear();
+        stack.clear();
     }
 
 }
