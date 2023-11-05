@@ -1,37 +1,24 @@
 import java.util.NoSuchElementException;
 
-public class MyQueue<T> implements QueueADT<T>
-{    
-    private Node<T> first, last;
-    public MyQueue()
-    {
-        this.first = null;
-    }
-    
-    
-    
-    public void enqueue(T element)
-    {
-        if(size() == 0)
-        {
-            first = new Node<T>(element, null);
-            last = first;
-        }
-        
-        else
-        {
-        Node<T> node = new Node<T>(element, null);
-        last.next = node;
-        this.last = node;
-        }
-    }
+/**
+ * An parameterized interface for the Queue Abstract Data Type
+ *
+ * @author Benjamin Kuperman (Spring 2005, Spring 2012, Spring 2014)
+ */
+
+public interface QueueADT<T> {
+    /**
+     * Add an item to the queue
+     * @param item the data item to add (of type T)
+     */
+    void enqueue(T item);
 
     /**
      * Remove the front item from the queue
      * @return the front item in the queue
      * @throws NoSuchElementException if the queue is empty
      */
-    T dequeue()
+    T dequeue();
 
     /**
      * Return the front item in the queue without removing it
@@ -44,55 +31,17 @@ public class MyQueue<T> implements QueueADT<T>
      * Find how many items are in the queue
      * @return the number of items in the queue
      */
-
-
-    
-    public int size()
-    {
-        if(last == null && first == null)
-        {
-            return 0;
-        }
-        
-        Node<T> var = first;
-        int i = 1;
-        
-        while(var.next != null)
-        {
-            var = var.next;
-            //System.out.println(var.data);
-            i++;  
-        }
-        return i;
-    }
+    int size();
 
     /**
      * Determine if the queue is empty
      * @return true if the size is 0, false otherwise
      */
-
-
-    
-    public boolean isEmpty()
-    {
-        if(this.first==null)
-        {
-            return true;
-        }
-        
-        return false;
-    }
+    boolean isEmpty();
 
     /**
      * Clear out the data structure
      */
+    void clear();
 
-
-    
-    public void clear()
-    {
-        this.first = null;
-        this.last = null;
-    }
-    
 }
