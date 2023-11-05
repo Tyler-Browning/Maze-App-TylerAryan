@@ -31,53 +31,14 @@ public class MyQueue<T> implements QueueADT<T>
      * @return the front item in the queue
      * @throws NoSuchElementException if the queue is empty
      */
-
-
-    
-    public T dequeue()
-    {
-        if (this.first == null)
-        {
-            throw new NoSuchElementException();
-        }
-
-        
-        T element = this.first.data;
-        
-        if(this.first.equals(this.last))
-        {
-            this.first = null;
-            this.last = null;
-            return element;
-        } 
-            
-        else 
-        {
-            this.first = this.first.next;
-            return element;
-        }
-    }
+    T dequeue()
 
     /**
      * Return the front item in the queue without removing it
      * @return the front item in the queue
      * @throws NoSuchElementException if the queue is empty
      */
-
-
-    
-    public T front()
-    {
-        if (this.first == null)
-        {
-            throw new NoSuchElementException();
-        }
-            
-        else
-        {
-        return this.first.data;
-        }
-    }
+    T front();
 
     /**
      * Find how many items are in the queue
