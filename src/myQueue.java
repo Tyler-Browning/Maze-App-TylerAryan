@@ -1,12 +1,9 @@
 import java.util.*;
 
 
-
-
 public class myQueue implements QueueADT
 {
     private Node first;
-
 
 
     public myQueue()
@@ -38,7 +35,7 @@ public class myQueue implements QueueADT
 
 
 
-    public Object dequeue() throws NoSuchElementException
+    public Object dequeue()
     {
         if(first != null)
         {
@@ -52,7 +49,7 @@ public class myQueue implements QueueADT
 
 
 
-    public Object front() throws NoSuchElementException
+    public Object front()
     {
         if(first != null)
             return first.data;
