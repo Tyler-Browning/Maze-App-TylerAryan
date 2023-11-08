@@ -5,12 +5,14 @@ public class square
     private int row;
     private int col;
     private int type;
+    public square previous;
 
     public square(int row, int col, int type)
     {
         this.row = row;
         this.col = col;
         this.type = type;
+        this.previous = null;
     }
 
     public int getRow()
@@ -28,6 +30,14 @@ public class square
         return type;
     }
 
+    public square getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(square previous) {
+        this.previous = previous;
+    }
+
     public String toString() 
     {
         switch(type) 
@@ -40,6 +50,12 @@ public class square
                 return "S";
             case 3:
                 return "E";
+            case 4:
+                return "o";
+            case 5:
+                return ".";
+            case 6:
+                return "x";
             default:
                 return "-1";    
         }
