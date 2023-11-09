@@ -3,7 +3,7 @@ import java.util.*;
 
 
 
-public class myQueue implements QueueADT
+public class myQueue<T> implements QueueADT
 {
     private Node first;
 

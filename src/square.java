@@ -38,6 +38,10 @@ public class square
         this.previous = previous;
     }
 
+    public void setType(int type) {
+        this.type = type;
+    }
+
     public String toString() 
     {
         switch(type) 

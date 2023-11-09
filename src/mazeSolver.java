@@ -7,6 +7,7 @@ public abstract class mazeSolver
 
     public mazeSolver(maze m) {
         this.m = m;
+        //this.add(m.getStart());
         
     }
 
@@ -33,10 +34,9 @@ public abstract class mazeSolver
     }
 
     public square step() {
-
+        square next = this.next();
         ArrayList <square> neighbors;
         if(!(this.isEmpty())) {
-            square next = this.next();
         
             if(next.getType() == 3) {
                 Stack<square> p = new Stack<>();
@@ -48,13 +48,13 @@ public abstract class mazeSolver
                 }
 
                 StringBuilder sb = new StringBuilder();
-                Square temporary;
+                square temporary;
 
                 while(!(p.isEmpty())) {
                     temporary = p.pop();
                     temporary.setType(6);
 
-                    sb.append("[" + temp.getRow() + "," + temp.getCol() + "]");
+                    sb.append("[" + temporary.getRow() + "," + temporary.getCol() + "]");
                 }
 
                 solution = new String(sb);
@@ -63,7 +63,7 @@ public abstract class mazeSolver
 
             }
             
-            neighbors = maze.getNeighbors(next);
+            neighbors = m.getNeighbors(next);
 
             for(square s: neighbors) {
                 if (s.getType() == 0) {
@@ -71,14 +71,14 @@ public abstract class mazeSolver
                     s.setType(4);
                     this.add(s);
                 }
-                else if (s.getType() == 3) {
+                if (s.getType() == 3) {
                     s.setPrevious(next);
                     this.add(s);
                 }
             }
 
             if(next.getType() == 4) {
-                current.setType(5);
+                next.setType(5);
             }
         }
         return next;
@@ -88,6 +88,6 @@ public abstract class mazeSolver
         while(!(this.isSolved())) {
             step();
         }
-        this.maze.reset();
+        this.m.reset();
     }
 }

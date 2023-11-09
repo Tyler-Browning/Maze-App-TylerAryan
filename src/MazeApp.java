@@ -27,8 +27,8 @@ public class MazeApp extends JFrame implements ActionListener {
     private static final long serialVersionUID = 6228378229836664288L;
 
     // Fields for internal data representation
-    private Maze maze;
-	private MazeSolver solver;
+    private maze maze;
+	private mazeSolver solver;
 	private boolean mazeLoaded;
     
     // Fields for GUI interface
@@ -157,7 +157,7 @@ public class MazeApp extends JFrame implements ActionListener {
 	doTimer();
 	doFontSize();
 	mazeLoaded = false;
-	this.maze = new Maze();
+	this.maze = new maze();
 	//makeNewSolver();
     }
     
@@ -294,9 +294,9 @@ public class MazeApp extends JFrame implements ActionListener {
     private void makeNewSolver() {
 	String oldType = solverType.getText();
 	if (oldType.equalsIgnoreCase("queue")) {
-	    solver = new MazeSolverQueue(this.maze);
+	    solver = new mazeSolverQueue(this.maze);
 	} else if (oldType.equalsIgnoreCase("stack")) {
-	    solver = new MazeSolverStack(this.maze);
+	    solver = new mazeSolverStack(this.maze);
 	} else
 	    throw new UnsupportedOperationException("Don't know how to solve using a: " + oldType);
     }

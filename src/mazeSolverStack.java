@@ -1,10 +1,12 @@
 public class mazeSolverStack extends mazeSolver 
 {
-    myStack<Square> worklist;
+    myStack<square> worklist;
 
-    public mazeSolverQueue(maze m)
+    public mazeSolverStack(maze m)
     {
         super(m);
+        worklist = new myStack<>();
+        worklist.push(m.getStart());
     }
 
     public void makeEmpty()
@@ -14,15 +16,15 @@ public class mazeSolverStack extends mazeSolver
 
     public boolean isEmpty()
     {
-        return worklist.isEmpty();
+        return worklist == null;
     }
 
-    public void add(Square sq)
+    public void add(square sq)
     {
         worklist.push(sq);
     }
 
-    public Square next()
+    public square next()
     {
         return worklist.pop();
     }

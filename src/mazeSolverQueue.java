@@ -1,10 +1,12 @@
 public class mazeSolverQueue extends mazeSolver 
 {
-    myQueue<Square> worklist;
+    myQueue<square> worklist;
 
     public mazeSolverQueue(maze m)
     {
         super(m);
+        worklist = new myQueue<>();
+        worklist.enqueue(m.getStart());
     }
 
     public void makeEmpty()
@@ -14,16 +16,16 @@ public class mazeSolverQueue extends mazeSolver
 
     public boolean isEmpty()
     {
-        return worklist.isEmpty();
+        return worklist == null;
     }
 
-    public void add(Square sq)
+    public void add(square sq)
     {
         worklist.enqueue(sq);
     }
 
-    public Square next()
+    public square next()
     {
-        return worklist.dequeue();
+        return (square) worklist.dequeue();
     }
 }
